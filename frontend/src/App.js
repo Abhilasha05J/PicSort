@@ -40,7 +40,7 @@ function App() {
 
   const categories = ['Normal', 'Initial Stage', 'Option3', 'Skip'];
   const API_BASE_URL = window.location.hostname.includes("localhost")
-  ? "http://localhost:5000"  // Local development
+  ? "http://localhost:8080"  // Local development
   : "https://picsort-backend-python.onrender.com"; // Production
 
   const isAllCategorized = images.every(image => categorizedImages[image]);
