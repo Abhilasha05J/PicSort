@@ -39,7 +39,10 @@ function App() {
   const [breadcrumbs, setBreadcrumbs] = useState([]);
 
   const categories = ['Normal', 'Initial Stage', 'Option3', 'Skip'];
-  const API_BASE_URL = 'http://localhost:5000';
+  const API_BASE_URL = window.location.hostname.includes("localhost")
+  ? "http://localhost:5000"  // Local development
+  : "https://picsort-backend-python.onrender.com"; // Production
+
   const isAllCategorized = images.every(image => categorizedImages[image]);
   // Load initial directories when dialog opens
   useEffect(() => {

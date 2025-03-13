@@ -39,6 +39,14 @@ IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.webp', '.svg', '.
 #         return jsonify({"directories": available_dirs})
 #     except Exception as e:
 #         return jsonify({"error": str(e)}), 500
+@app.route("/")
+def index():
+    return jsonify({
+        "message": "Welcome to the API!",
+        "status": "running"
+    })
+
+
 @app.route('/api/list-directories', methods=['GET'])
 def list_directories():
     """List available directories for user selection"""
@@ -213,4 +221,5 @@ def serve(path):
         return send_from_directory(app.static_folder, 'index.html')
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(host="0.0.0.0",  port=8080)
+    
